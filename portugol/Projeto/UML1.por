@@ -1,11 +1,11 @@
 programa
 {
 	inclua biblioteca Matematica --> mat
-	inclua biblioteca Calendario --> cal
+	inclua biblioteca Calendario --> cal
 	
 	
 	funcao inicio()
-	{	const inteiro qtde_total = 3, rodada = 3
+	{	const inteiro qtde_total = 3, rodada = 3
 		inteiro matricula=1, numero=0,qtde_mes[12], mes[12], mes_atual = cal.mes_atual()
 		cadeia cpf="000.000.000-00" , tipo[]={"Básico","MÉDIO","GRADUAÇÃO","PÓS","MESTRADO"}
 		real pontos, soma_pontos = 0.00
@@ -66,18 +66,18 @@ programa
 		     		se(continuar =='N' ou continuar=='n')
 		     		{
 		     			limpa()
-		     			escreva("Deseja imprimir S/N: ")
+		     			escreva("\nDeseja imprimir S/N: ")
 		     			leia(pediBoletim)
 		     			se(pediBoletim =='S' ou pediBoletim=='s' e qtde_mes[mes_atual-1]<=qtde_total)
 		     			{
 		     				qtde_mes[mes_atual-1]++
-		     				escreva("Impressão do Boletim ",qtde_mes[mes_atual-1],"/",qtde_total,".")
+		     				escreva("\nImpressão do Boletim ",qtde_mes[mes_atual-1],"/",qtde_total,".")
 		     				escreva("\nTotal de nota: ",mat.arredondar(soma_pontos, 2))
 		     				pare
 		     			}
 		     			se(pediBoletim =='N' ou pediBoletim=='n')
 		     			{
-		     				escreva("Quantidade de impressões no mês: ", qtde_total - qtde_mes[mes_atual-1])
+		     				escreva("\nQuantidade de impressões no mês: ", qtde_total - qtde_mes[mes_atual-1])
 		     				pare
 		     			}
 		     		}
@@ -85,7 +85,7 @@ programa
 		     		{
 		     			se(soma_pontos<0)
 		     			{
-		     				escreva("Pontuação negativa. Favor informar as notas novamente")
+		     				escreva("\nPontuação negativa. Favor informar as notas novamente")
 		     				pare
 		     			}
 		     			escreva("Deseja imprimir S/N: ")
@@ -130,7 +130,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2637; 
+ * @POSICAO-CURSOR = 2632; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
