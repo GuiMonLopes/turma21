@@ -29,8 +29,10 @@ public class Exercicio4 {
 				pot = Math.pow(num,2);
 				System.out.printf("O número é %.2f e sua potencia ao quadrado é de %.2f\n", num, pot);
 			}
+		}else {
+			System.out.printf("O numero é negativo.");
 		}
-
+		teclado.close();
 	}
 
 }
