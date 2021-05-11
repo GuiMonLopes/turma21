@@ -69,12 +69,10 @@ public class ProgramaEscola {
 					continuar = teclado.next().toUpperCase().charAt(0);
 					
 					if (continuar == 'N') {
-						System.out.println("Deseja imprimir S/N: ");
-						pediBoletim = teclado.next().toUpperCase().charAt(0);
-						alunoMedio.pediBoletim(pediBoletim);
 						break;
 					}				
 				}
+			
 			System.out.println("Deseja imprimir S/N: ");
 			pediBoletim = teclado.next().toUpperCase().charAt(0);
 			alunoMedio.pediBoletim(pediBoletim);
