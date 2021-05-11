@@ -35,6 +35,7 @@ public class Estudante {
 	public void retirarNota(double pontos) {
 		this.pontos-=pontos;
 	}
+	
 	//encapsulamento - gettrs e setters
 	public int getMatricula() {
 		return matricula;
