@@ -17,7 +17,10 @@ public class Cachorro extends Animal {
 		this.correr = correr;
 	}
 	
-	
+	@Override
+	public void som() {
+		System.out.println("Au au au");
+	}
 	
 	
 

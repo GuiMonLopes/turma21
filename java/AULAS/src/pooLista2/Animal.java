@@ -1,9 +1,10 @@
 package pooLista2;
 
-public class Animal {
+public abstract class Animal {
 	private String  nome;
 	private int idade;
-	private boolean emiteSom;
+	private String emiteSom;
+	private String movimento;
 	public Animal(String nome, int idade) {
 		super();
 		this.nome = nome;
@@ -21,13 +22,27 @@ public class Animal {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	public boolean isEmiteSom() {
+	public String getEmiteSom() {
 		return emiteSom;
 	}
-	public void setEmiteSom(boolean emiteSom) {
+	public void setEmiteSom(String emiteSom) {
 		this.emiteSom = emiteSom;
 	}
+	public void setMovimento(String movimento) {
+		this.movimento = movimento;
+	}
 	
+	public String getMovimento() {
+		return movimento;
+	}
+	
+	
+	public void som() {
+		System.out.println("Emitir som");
+	}
+	public void movimentar() {
+		System.out.println("Correr");
+	}
 	
 	
 	

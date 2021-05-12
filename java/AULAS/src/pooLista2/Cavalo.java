@@ -17,6 +17,10 @@ public class Cavalo extends Animal{
 		this.correr = correr;
 	}
 	
+	@Override
+	public void som() {
+		System.out.println("Hiin in in");
+	}
 	
 
 }

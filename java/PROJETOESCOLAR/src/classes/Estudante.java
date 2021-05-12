@@ -1,6 +1,6 @@
 package classes;
 
-public class Estudante {
+public abstract class Estudante {
 	//atributos - CHECK - Segurança
 	private int matricula;
 	private String cpf;

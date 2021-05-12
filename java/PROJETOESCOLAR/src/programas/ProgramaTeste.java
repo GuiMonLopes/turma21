@@ -1,55 +1,181 @@
 package programas;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 import classes.Basico;
 import classes.Estudante;
+import classes.Graduacao;
+import classes.Medio;
 
 public class ProgramaTeste {
 
 	public static void main(String[] args) {
-		/*
-		 * Programa para testar as classes
-		 */
-		double nota=0;
+		Locale.setDefault(Locale.US);
 		Scanner teclado = new Scanner(System.in);
-		
-		Estudante aluno1 = new Estudante(1234,"111",true);//instanciamento do objeto
-		
-		System.out.println(aluno1.getCpf());
-		
-		System.out.println("Digite nota do aluno: ");
-		
-		aluno1.adicionarNota(nota = teclado.nextDouble());
-		
-		System.out.printf(" A matricula: %d e a nota é: %.2f",aluno1.getMatricula(),nota);
-		
-		
-		System.out.println("Informe o nome: ");
-        String nome = teclado.next().toUpperCase();
-		System.out.println("Digite a matricula: ");
-		int matricula = teclado.nextInt();
-		
-		System.out.println("Digite CPF: ");
-		String cpf = teclado.next();
-		
-		System.out.println("Digite o dia de aniversario: ");
-		int dia = teclado.nextInt();
-		
-		Basico alunoBasico1 = new Basico(matricula,cpf,dia);
-		alunoBasico1.setNome(nome);
-		System.out.println("Digite a nota: ");
-		alunoBasico1.adicionarNota(nota = teclado.nextDouble());
-		
-		System.out.printf("Aluno: %s, Matricula: %d, Pontos: %.2f",alunoBasico1.getNome(),alunoBasico1.getMatricula(),alunoBasico1.getPontos());
-		
-		System.out.println("Digite o dia atual: ");
-		int diaAtual = teclado.nextInt();
-		alunoBasico1.bonusAniversario(diaAtual);
-		System.out.printf("Aluno: %s, Matricula: %d, Pontos: %.2f",alunoBasico1.getNome(),alunoBasico1.getMatricula(),alunoBasico1.getPontos());
 
-		
+		final int rodada = 3;
+		int numero;
+		double pontos = 0.0;
+		char nota, continuar, pediBoletim;
+
+		String tipo[] = { "Básico", "MÉDIO", "GRADUAÇÃO", "PÓS", "MESTRADO" };
+
+		System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+		System.out.println("-----------------------------------");
+		System.out.println("1 - Básico\n2 - MÉDIO\n3 - GRADUAÇÃO\n4 - PÓS\n5 - MESTRADO\n6 - SAIR");
+		System.out.println("Digite o código da opção selecionada: ");
+		numero = teclado.nextInt();
+
+		switch (numero) {
+
+		case 1: {
+			Basico alunoBasico = new Basico(1,"111",11);
 			
+			System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+			System.out.println("-----------------------------------");
+			System.out.println("Ensino: " + tipo[numero - 1]);
+			System.out.println("Matricula: " + alunoBasico.getMatricula());
+			System.out.println("CPF: " + alunoBasico.getCpf());
+			if (alunoBasico.isStatus() == true) {
+				System.out.println("Status: 1 - Ativo");
+			} else {
+				System.out.println("Status: 2 - Inativo");
+			}
+			System.out.println("-----------------------------------");
+			for (int i = 0; i < rodada; i++) {
+				
+				System.out.printf("\nTotal de nota: %.2f", alunoBasico.getPontos());
+				System.out.printf("\nMovimento %d/%d: I-Incluir Nota ou R-Retirar nota: ", i + 1, rodada);
+				nota = teclado.next().toUpperCase().charAt(0);
+				System.out.println("Valor do movimento: ");
+				pontos = teclado.nextDouble();
+				if (nota == 'I') {
+					alunoBasico.adicionarNota(pontos);
+					alunoBasico.bonusAniversario(pontos);
+				} else if (nota == 'R') {
+
+					alunoBasico.retirarNota(pontos);
+				}
+				System.out.println("Deseja continuar S/N: ");
+				continuar = teclado.next().toUpperCase().charAt(0);
+
+				if (continuar == 'N') {
+					break;
+				}
+			System.out.println("Fim do Programa.");
+			
+			}
+
+			
+
+			break;
+		}
+		case 2: {
+			Medio alunoMedio = new Medio(1, "111.111.111-11", true);
+
+			System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+			System.out.println("-----------------------------------");
+			System.out.println("Ensino: " + tipo[numero - 1]);
+			System.out.println("Matricula: " + alunoMedio.getMatricula());
+			System.out.println("CPF: " + alunoMedio.getCpf());
+			if (alunoMedio.isStatus() == true) {
+				System.out.println("Status: 1 - Ativo");
+			} else {
+				System.out.println("Status: 2 - Inativo");
+			}
+
+			System.out.println("-----------------------------------");
+			for (int i = 0; i < rodada; i++) {
+				
+					System.out.printf("\nTotal de nota: %.2f", alunoMedio.getPontos());
+					System.out.printf("\nMovimento %d/%d: I-Incluir Nota ou R-Retirar nota: ", i + 1, rodada);
+					nota = teclado.next().toUpperCase().charAt(0);
+					System.out.println("Valor do movimento: ");
+					pontos = teclado.nextDouble();
+					if (pontos > alunoMedio.getPontos() && nota == 'R') {
+						System.out.printf("A nota ficará negativa. Total de pontos %.2f.", alunoMedio.getPontos());
+					}
+
+				if (nota == 'I') {
+					alunoMedio.adicionarNota(pontos);
+				} else if (nota == 'R') {
+
+					alunoMedio.retirarNota(pontos);
+				}
+				System.out.println("Deseja continuar S/N: ");
+				continuar = teclado.next().toUpperCase().charAt(0);
+
+				if (continuar == 'N') {
+					break;
+				}
+			}
+
+			System.out.println("Deseja imprimir S/N: ");
+			pediBoletim = teclado.next().toUpperCase().charAt(0);
+			alunoMedio.pediBoletim(pediBoletim);
+
+			break;
+		}
+		case 3: {
+			Graduacao alunoGraduacao = new Graduacao(1,"111");
+			System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+			System.out.println("-----------------------------------");
+			System.out.println("Ensino: " + tipo[numero - 1]);
+			System.out.println("Matricula: " + alunoGraduacao.getMatricula());
+			System.out.println("CPF: " + alunoGraduacao.getCpf());
+			if (alunoGraduacao.isStatus() == true) {
+				System.out.println("Status: 1 - Ativo");
+			} else {
+				System.out.println("Status: 2 - Inativo");
+			}
+
+			System.out.println("-----------------------------------");
+			for (int i = 0; i < rodada; i++) {
+				
+				System.out.printf("\nTotal de nota: %.2f", alunoGraduacao.getPontos());
+				System.out.printf("\nMovimento %d/%d: I-Incluir Nota ou R-Retirar nota: ", i + 1, rodada);
+				nota = teclado.next().toUpperCase().charAt(0);
+				System.out.println("Valor do movimento: ");
+				pontos = teclado.nextDouble();
+				if (nota == 'I') {
+					alunoGraduacao.adicionarNota(pontos);
+				} else if (nota == 'R') {
+
+					alunoGraduacao.retirarNota(pontos);
+				}
+				System.out.println("Deseja continuar S/N: ");
+				continuar = teclado.next().toUpperCase().charAt(0);
+
+				if (continuar == 'N') {
+					break;
+				}
+			System.out.println("Fim do Programa.");
+			
+			}
+
+			break;
+		}
+		case 4: {
+
+			break;
+		}
+		case 5: {
+
+			break;
+		}
+		case 6: {
+			System.out.println("Fim do programa!");
+			break;
+		}
+		default: {
+			System.out.println("Opção Inválida!");
+			break;
+		}
+
+		}
+
+		teclado.close();
 		}
 
 }

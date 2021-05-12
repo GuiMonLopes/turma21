@@ -1,6 +1,10 @@
 package classes;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class Basico extends Estudante {
+	GregorianCalendar gc = new GregorianCalendar();
 	
 	private int diaAniversario;
 
@@ -22,9 +26,9 @@ public class Basico extends Estudante {
 		this.diaAniversario = diaAniversario;
 	}
 	
-	public void bonusAniversario(int dia) {
-		if (diaAniversario == dia) {
-			super.adicionarNota((super.getPontos()*0.1));
+	public void bonusAniversario(double pontos) {
+		if (diaAniversario == gc.get(Calendar.DAY_OF_MONTH)) {
+			super.adicionarNota((pontos*0.1));
 		}
 	}
 	

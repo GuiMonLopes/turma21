@@ -17,6 +17,9 @@ public class Preguiça extends Animal {
 	public void setEscalarArvore(boolean escalarArvore) {
 		this.escalarArvore = escalarArvore;
 	}
-	
+	@Override
+	public void movimentar() {
+		System.out.println("Subir em arvore.");
+	}
 
 }
