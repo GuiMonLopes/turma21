@@ -47,11 +47,11 @@ public class Funcionariio {
 		this.salarioHora = salarioHora;
 	}
 	
-	public void mostrarSalario()
-	{
-		
-		System.out.printf("O seu salario é: %.2f" , horasTrabalhadas* salarioHora);
-	}
+	public double salario(){
+        
+        return (horasTrabalhadas * salarioHora);
+    }
+
 
 	@Override
 	public String toString() {

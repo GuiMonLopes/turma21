@@ -19,16 +19,16 @@ public class Terceiro extends Funcionariio {
 	}
 	
 	@Override
+	public double salario(){
+        
+        return (horasTrabalhadas* salarioHora)+adicional;
+    }
 	
-	public void mostrarSalario()
-	{
-		System.out.printf("O seu salario é: %.2f" , (horasTrabalhadas* salarioHora)+adicional);
-	}
 
 	@Override
 	public String toString() {
-		return "Terceiro [adicional=" + adicional + ", matricula=" + matricula + ", nome=" + nome
-				+ ", horasTrabalhadas=" + horasTrabalhadas + ", salarioHora=" + salarioHora + "]";
+		return "Terceiro [matricula=" + matricula + ", nome=" + nome
+				+ ", horasTrabalhadas=" + horasTrabalhadas + ", salarioHora=" + salarioHora + " + adicional= "+ adicional+"]";
 	}
 
 	
