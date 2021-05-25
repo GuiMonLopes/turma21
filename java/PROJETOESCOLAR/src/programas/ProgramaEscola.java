@@ -6,6 +6,8 @@ import java.util.Scanner;
 import classes.Basico;
 import classes.Graduacao;
 import classes.Medio;
+import classes.Mestrado;
+import classes.Pos;
 
 public class ProgramaEscola {
 
@@ -155,10 +157,80 @@ public class ProgramaEscola {
 			break;
 		}
 		case 4: {
+			Pos alunoPos = new Pos(1, "111", 5);
+			System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+			System.out.println("-----------------------------------");
+			System.out.println("Ensino: " + tipo[numero - 1]);
+			System.out.println("Matricula: " + alunoPos.getMatricula());
+			System.out.println("CPF: " + alunoPos.getCpf());
+			if (alunoPos.isStatus() == true) {
+				System.out.println("Status: 1 - Ativo");
+			} else {
+				System.out.println("Status: 2 - Inativo");
+			}
+
+			System.out.println("-----------------------------------");
+			for (int i = 0; i < rodada; i++) {
+
+				System.out.printf("\nTotal de nota: %.2f", alunoPos.getPontos());
+				System.out.printf("\nMovimento %d/%d: I-Incluir Nota ou R-Retirar nota: ", i + 1, rodada);
+				nota = teclado.next().toUpperCase().charAt(0);
+				System.out.println("Valor do movimento: ");
+				pontos = teclado.nextDouble();
+				if (nota == 'I') {
+					alunoPos.adicionarNota(pontos);
+				} else if (nota == 'R') {
+
+					alunoPos.retirarNota(pontos);
+				}
+				System.out.println("Deseja continuar S/N: ");
+				continuar = teclado.next().toUpperCase().charAt(0);
+
+				if (continuar == 'N') {
+					break;
+				}
+				System.out.println("Fim do Programa.");
+
+			}
 
 			break;
 		}
 		case 5: {
+			Mestrado alunoMestrado = new Mestrado(1, "111", 10);
+			System.out.println("\nEducaNorte\nEnsinar é o nosso forte");
+			System.out.println("-----------------------------------");
+			System.out.println("Ensino: " + tipo[numero - 1]);
+			System.out.println("Matricula: " + alunoMestrado.getMatricula());
+			System.out.println("CPF: " + alunoMestrado.getCpf());
+			if (alunoMestrado.isStatus() == true) {
+				System.out.println("Status: 1 - Ativo");
+			} else {
+				System.out.println("Status: 2 - Inativo");
+			}
+
+			System.out.println("-----------------------------------");
+			for (int i = 0; i < rodada; i++) {
+
+				System.out.printf("\nTotal de nota: %.2f", alunoMestrado.getPontos());
+				System.out.printf("\nMovimento %d/%d: I-Incluir Nota ou R-Retirar nota: ", i + 1, rodada);
+				nota = teclado.next().toUpperCase().charAt(0);
+				System.out.println("Valor do movimento: ");
+				pontos = teclado.nextDouble();
+				if (nota == 'I') {
+					alunoMestrado.adicionarNota(pontos);
+				} else if (nota == 'R') {
+
+					alunoMestrado.retirarNota(pontos);
+				}
+				System.out.println("Deseja continuar S/N: ");
+				continuar = teclado.next().toUpperCase().charAt(0);
+
+				if (continuar == 'N') {
+					break;
+				}
+				System.out.println("Fim do Programa.");
+
+			}
 
 			break;
 		}

@@ -16,6 +16,7 @@ public class Graduacao extends Estudante {
 		this.bonus = bonus;
 	}
 	
+	@Override
 	public void retirarNota(double pontos) {
 		double aux;
 		
